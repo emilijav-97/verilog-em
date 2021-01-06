@@ -1,0 +1,65 @@
+`timescale 1ns / 1ps
+
+module test_fifo;
+
+//Inputs
+reg clk;
+reg [31:0] din;
+reg rd_en;
+reg wr_en;
+reg rst;
+
+//Outputs
+wire [31:0] dout;
+wire empty;
+wire full;
+
+fifo_2 uut (
+						.clk(clk),
+						.din(din),
+						.wr_en(wr_en),
+						.rd_en(rd_en),
+						.rst(rst),
+						.dout(dout),
+						.empty(empty),
+						.full(full)
+						);
+						
+initial begin
+	clk = 1'b0;
+	din = 32'h0;
+	rd_en = 1'b0;
+	wr_en = 1'b0;
+	rst = 1'b1;
+	
+	#100;
+	
+	
+	rst = 1'b1;
+	
+	#20;
+	rst = 1'b0;
+	wr_en = 1'b1;
+	din = 32'h0;
+	
+	#20;
+	din = 32'h1;
+	
+	#20;
+	din = 32'h2;
+	
+	#20;
+	din = 32'h3;
+	
+	#20;
+	din = 32'h4;
+	
+	#20;
+	wr_en = 1'b0;
+	rd_en = 1'b1;
+	
+end
+ always #10 clk = ~clk;
+
+endmodule
+	
