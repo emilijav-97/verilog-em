@@ -1,0 +1,20 @@
+module shift_regg (	input [7:0] valid1, // or 7:0 ?
+							input clk, load,
+							output reg [31:0] serial_out);
+
+	reg [31:0] shift_register;
+
+	always @( posedge clk)
+		begin
+			if(load)
+				shift_register <= valid1;
+			else
+				begin
+				serial_out <= shift_register[31];
+				shift_register <= {serial_out[31:0], 1'b0};
+				end
+		end
+	//I will connect the counter and valid here
+	
+		
+endmodule 
