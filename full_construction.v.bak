@@ -1,0 +1,11 @@
+module full_construction (input clk, rst);
+
+wire stop, memory_full, validintocounter, countertoshift, shifttomem;
+
+	valid_in valid_in1 (.clk(clk), .rst(rst), .valid_in(validintocounter));
+	
+	counter counter1 (.button(validintocounter),.clk(clk), .rst(rst), .validin(countertoshift));
+	
+	
+	
+endmodule
