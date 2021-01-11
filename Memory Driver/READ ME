@@ -1,0 +1,4 @@
+In this folder, I have described each of the Mem. Driver modules independently,then they are linked to a certain test bench and the last memory_driver_off is created
+using state machines. 
+Afterward, all the modules are connected in a full_constructor module. This is one of my first independently designed (more complex) element in Verilog and I will appreciate any
+suggestions or critics. :)
