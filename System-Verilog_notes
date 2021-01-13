@@ -2,8 +2,8 @@
 //ALWAYS_FF
 
 module always_ff_pr (	input logic clk, rst,
-								output logic y,z
-							);
+			output logic y,z
+		     );
 							
 	always_ff @(posedge clk, posedge rst)
 		begin
@@ -23,8 +23,8 @@ endmodule
 // be assigned in another module
 
 module always_comb_pr ( input logic a, b,
-								 output logic y,z
-							  );
+			output logic y,z
+			);
 			
 	always_latch begin
 		if (a > b)
@@ -51,8 +51,8 @@ endmodule
 //ALWAYS_LATCH
 
 module always_latch_pr ( input logic a, b,
-								 output logic y,z
-							  );
+			 output logic y,z 
+			 );
 			
 	always_latch begin
 		if (a > b)
