@@ -1,14 +1,14 @@
  module up_counter (
-							//----------------------------------------------------------------
-							// INPUTS
-							input  wire        enable  ,  // enable for counter
-							input  wire        clk     ,  // clock Input
-							input  wire      	 reset   ,      // reset Input
+//----------------------------------------------------------------
+// INPUTS
+input  wire        enable  ,  // enable for counter
+input  wire        clk     ,  // clock Input
+input  wire      	 reset   ,      // reset Input
 							
-							// OUTPUTS
-							output reg  [7:0]  out		;
+// OUTPUTS
+output reg  [7:0]  out		;
 							
-							);
+			);
  
   //--------------------------------------------------------------------
   // COUNTER BLOCK
