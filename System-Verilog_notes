@@ -1,0 +1,76 @@
+//This file will conntaion the usage of always_ff, always_latch, always_combo
+//ALWAYS_FF
+
+module always_ff_pr (	input logic clk, rst,
+								output logic y,z
+							);
+							
+	always_ff @(posedge clk, posedge rst)
+		begin
+			if (rst) 
+				begin
+					y <= 0;
+					z <= 0;
+				end
+			else
+				begin
+					y <= 1;
+					z <= 1;
+				end
+			end
+endmodule
+//IMPORTANT for always_ff: - result in sequential logic, also sensitivity list is must (posedge, negedge), and outputs cannot
+// be assigned in another module
+
+module always_comb_pr ( input logic a, b,
+								 output logic y,z
+							  );
+			
+	always_latch begin
+		if (a > b)
+			begin
+				y = 1;
+				z = 0;
+			end
+		else if (a < b)
+			begin
+				y = 0;
+				z = 1;
+			end
+		else 
+			begin
+				y= 1;
+				z = 1;
+			end
+		end
+endmodule
+//IMPORTANT for always_combo:-combinational logic and no need for sensitivity list
+//systemverilog ensures that all software tools will take place in same blocl
+//outputs canoot get assigned in another block, evaluated at time zero
+
+//ALWAYS_LATCH
+
+module always_latch_pr ( input logic a, b,
+								 output logic y,z
+							  );
+			
+	always_latch begin
+		if (a > b)
+			begin
+				y = 1;
+				z = 0;
+			end
+		else if (a < b)
+			begin
+				//y = 0;
+				z = 1;
+			end
+		//else 
+			//begin
+				// y= 1;
+				// z = 1;
+			//end
+		end
+endmodule 
+//IMPORTANT for always_latch: -ussed for latches, sensitivty list inferred 
+// outputs con not be assigned in another bloc, evaluated in time zero
