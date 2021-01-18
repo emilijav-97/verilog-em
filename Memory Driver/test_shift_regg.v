@@ -5,7 +5,8 @@ module test_shift_regg;
 //Inputs
 	reg clk;
 	reg si;
-	reg shift;
+	reg [7:0] shift;
+	reg validin
 	
 
 //----------------------------------------------------------------------------------------------------------------------//
@@ -19,45 +20,47 @@ module test_shift_regg;
 	localparam period = 20; //period
 	
 	shift_regg uut (	.clk(clk),
-							.po(po),
-							.shift(shift),
-							.si(si)
+				.po(po),
+				.shift(shift),
+				.si(si),
+				.validin(validin),
 						);
 							
 	initial
 		begin
 	
 		clk = 1'b1;
-		shift= 1'b1;
+		shift= 8'b1;
+		validin = 1'b1;
 		
 		#period;
-		shift= 1'b0;
+		shift= 8'b0;
 			
 		#period;
-		shift= 1'b1;
+		shift= 8'b1;
 		
 		#period;
-		shift= 1'b0;
+		shift= 8'b0;
 		
 		#period;
-		si= 1'b0;
+		si= 8'b0;
 		
 		#period;
-		si= 1'b1;
+		si= 8'b1;
 		
 		#period;
-		si= 1'b1;
+		si= 8'b1;
 
 		#period;
-		si= 1'b1;
+		si= 8'b1;
 		
 		#period;
-		shift= 1'b0;
+		shift= 8'b0;
 		
 		#period;
-		shift= 1'b1;
-		#period;
-		shift= 1'b0;
+		shift= 8'b1;
+		#period;	
+		shift= 8'b0;
 	
 		#period;
 		si= 1'b0;
